@@ -68,8 +68,9 @@
 
 
 
-<span style="color: #2D3748; background-color:#fff5b1;"> **고객**이 이메일과 이름을 통해 아이디를 찾는 기능과 아이디와 이름을 통해 패스워드를 찾습니다.</span>
-
+<span style="color: #2D3748; background-color:#fff5b1;">
+ 
+***
 
 
 
@@ -86,7 +87,8 @@
 * <span style="color: #2D3748; background-color:#fff5b1;"> **유저**는 community -> Mypage에서 사진을 `수정`할 수 있습니다.</span>
 * 로그인 된 회원이 아니라면 로그인페이지로 이동 됩니다.
 
-
+  
+***
 
 
 ### :three:  관리자 페이지 상품목록-> 상품조회 기능
@@ -99,7 +101,8 @@
 
 
 
-
+***
+  
 
 ### :four: 제품별  리뷰 등록 / 수정 / 삭제  
 
@@ -122,6 +125,8 @@
 ​	![image-20220622182014941](https://user-images.githubusercontent.com/80139780/175012919-9d7f34ad-0cae-44dd-bc72-9a461eab0fc0.png)
 
 
+***
+  
 
 ###  :five: 공지사항 페이지    
 
