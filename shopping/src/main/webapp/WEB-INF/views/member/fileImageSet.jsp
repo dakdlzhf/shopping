@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function formCheck() {
-		let fnameMF = document.getElementById("fnameMF").value;
-		if (fnameMF != null) {
+		let fnameMF = $('#fnameMF').val();
+		if (fnameMF == null) {
 			alert("수정할 사진을 선택하세요");
 			return false;
 		} else {
@@ -31,7 +31,7 @@
 				<!-- 사진 수정 -->
 				<form class="form-horizontal" action="/member/fileImageSet"
 					method="post" enctype="multipart/form-data"
-					onsubmit="return formCheck()">
+					>
 					<input type="hidden" name="id" value="${dto.id}" />
 					<div class="form-group">
 						<div>

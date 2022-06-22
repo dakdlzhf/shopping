@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -59,13 +61,19 @@
 
 		</div>
 		<div>
-			<button type="button" class="btn" id="noticeReadCreateBtn">등록</button>
-			<button type="button" class="btn" onclick="updateM()">수정</button>
-			<button type="button" class="btn" onclick="deleteM()">삭제</button>
-			<button type="button" class="btn" onclick="listM()">목록</button>
+			<c:choose>
+				<c:when test="${sessionScope.grade eq 'A'}">
+					<button type="button" class="btn" id="noticeReadCreateBtn">등록</button>
+					<button type="button" class="btn" onclick="updateM()">수정</button>
+					<button type="button" class="btn" onclick="deleteM()">삭제</button>
+					<button type="button" class="btn" onclick="listM()">목록</button>
+				</c:when>
+				<c:otherwise>
+					<button type="button" class="btn" onclick="listM()">목록</button>
+				</c:otherwise>
+			</c:choose>
 		</div>
 	</div>
-
 
 	<!-- notice.js 연결 -->
 	<script src="${pageContext.request.contextPath}/js/notice.js"></script>
