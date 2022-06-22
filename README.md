@@ -113,7 +113,7 @@
 
 * <span style="color: #2D3748; background-color:#fff5b1;"> **비회원** 이 등록버튼을 누르면 로그인 화면으로 이동됩니다.</span>
 
-  ![image-20220622182108112](../../AppData/Roaming/Typora/typora-user-images/image-20220622182108112.png)
+  ![image-20220622182108112](https://user-images.githubusercontent.com/80139780/175012812-e9c60571-96c3-4d51-827c-4e19f1088128.png)
 
 
 
