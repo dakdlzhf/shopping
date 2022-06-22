@@ -125,17 +125,17 @@
 
 ###  :five: 공지사항 페이지    
 
->![image-20220622172820624](../../AppData/Roaming/Typora/typora-user-images/image-20220622172820624.png)
+![image-20220622172820624](https://user-images.githubusercontent.com/80139780/175013058-597a44fa-6f78-4cd3-928c-8e7f6749bae0.png)
 
 
 
 * <span style="color: #2D3748; background-color:#fff5b1;">**비회원** 과 **회원** 은 공지사항 목록과 해당 글을 `읽기` 기능까지만 허용됩니다.</span>
 
-<img src="../../AppData/Roaming/Typora/typora-user-images/image-20220622190903296.png" alt="image-20220622190903296" style="zoom:80%;" />
+![image-20220622190903296](https://user-images.githubusercontent.com/80139780/175013147-814b995f-84db-4e83-9de3-6dec75ad88c4.png)
 
 * <span style="color: #2D3748; background-color:#fff5b1;"> **관리자** 는  공지사항을  `등록`/`수정`/`삭제` 모두 가능합니다.</span>
 
-<img src="../../AppData/Roaming/Typora/typora-user-images/image-20220622190834833.png" alt="image-20220622190834833" style="zoom:80%;" />
+![image-20220622190834833](https://user-images.githubusercontent.com/80139780/175013200-50665c3f-d453-4d3e-b66e-f7fce142f9f3.png)
 
 ### :six: 제품 을 장바구니에 추가하기
 
@@ -145,23 +145,29 @@
 
 2) 정상적으로 <u>비동기처리가 완료</u> 가 되면 **`alert 창을 통해 확인`** 할수 있습니다.
 
-   ![image-20220622192233370](../../AppData/Roaming/Typora/typora-user-images/image-20220622192233370.png)
+   ![image-20220622192233370](https://user-images.githubusercontent.com/80139780/175013243-d3a093d4-323d-43ae-8958-f37c648a26bf.png)
 
    ***
 
-   ![image-20220622192437526](../../AppData/Roaming/Typora/typora-user-images/image-20220622192437526.png)
+   ![image-20220622192437526](https://user-images.githubusercontent.com/80139780/175013267-8769616f-cb74-4a20-b9ae-7bd72b27b810.png)
 
 3) cart.jsp 에서는 비동기처리로 전달받은 정보를 바탕으로 화면에 출력해줍니다.
 
    
 
-   ![image-20220622192659255](../../AppData/Roaming/Typora/typora-user-images/image-20220622192659255.png)
+ ![image-20220622192659255](https://user-images.githubusercontent.com/80139780/175013296-e452e249-7cfb-4afa-b2b8-3176ce01f439.png)
 
    
 
 4) 회원이 장바구니를 추가 하지않고 cart 를 클릭했을시 아래화면 처럼 출력합니다.
 
-![image-20220622193056095](../../AppData/Roaming/Typora/typora-user-images/image-20220622193056095.png)
+![image-20220622193056095](https://user-images.githubusercontent.com/80139780/175013337-e02a2bf0-b744-4282-81ef-8f24387ff7bb.png)
+
+
+
+
+
+
 
 
 
