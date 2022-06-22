@@ -107,7 +107,7 @@
 
 * <span style="color: #2D3748; background-color:#fff5b1;"> **회원** 은 리뷰를 `등록` 할수 있습니다.</span>
 
-![image-20220622181820788](../../AppData/Roaming/Typora/typora-user-images/image-20220622181820788.png)
+![image-20220622181820788](https://user-images.githubusercontent.com/80139780/175012673-5f7362b6-5b54-4e80-9493-0f577d37936e.png)
 
 
 
