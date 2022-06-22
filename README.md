@@ -77,7 +77,7 @@
 
 ### :two:  로그인된 유저만 이미지를 변경 할수있습니다.
 
-><img src="../../AppData/Roaming/Typora/typora-user-images/image-20220622173105181.png" alt="image-20220622173105181" style="zoom: 67%;" />
+![image-20220622173105181](https://user-images.githubusercontent.com/80139780/175012272-50eaaec3-595c-48ae-b1f6-e7833c94db98.png)
 
 ![image-20220622174901252](../../AppData/Roaming/Typora/typora-user-images/image-20220622174901252.png)
 
