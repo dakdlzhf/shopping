@@ -79,7 +79,7 @@
 
 ![image-20220622173105181](https://user-images.githubusercontent.com/80139780/175012272-50eaaec3-595c-48ae-b1f6-e7833c94db98.png)
 
-![image-20220622174901252](../../AppData/Roaming/Typora/typora-user-images/image-20220622174901252.png)
+![image-20220622174901252](https://user-images.githubusercontent.com/80139780/175012398-38bb461c-a774-4324-93bc-1274010b2205.png)
 
 
 
