@@ -56,7 +56,7 @@
 
   * <span style="color: #2D3748; background-color:#fff5b1;"> 입력 후 <u>아이디 찾기</u> 버튼을 누르면 Controller 로 비동기요청을 보내지는동시에 입력된 값을 alert 로 한번더 보여줍니다 그이후 비동기 처리 결과 를 아래와 같이 출력합니다.</span>
 
-  <img src="../../AppData/Roaming/Typora/typora-user-images/image-20220622183419747.png" alt="image-20220622183419747" style="zoom:80%;" />
+  ![image-20220622194539640](https://user-images.githubusercontent.com/80139780/175011672-6731e2bc-e6f0-4e49-9c34-fe9bf754c001.png)
 
   
 
