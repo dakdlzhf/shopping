@@ -60,7 +60,7 @@
 
   
 
-  <img src="../../AppData/Roaming/Typora/typora-user-images/image-20220622183447693.png" alt="image-20220622183447693" style="zoom:80%;" />
+  ![image-20220622183447693](https://user-images.githubusercontent.com/80139780/175012115-7c9799ab-1569-4edc-86a0-697cdb941051.png)
 
   * 비밀번호 찾기 기능은 동일한 방법으로 동일한 결과를 얻을수 있습니다.
 
