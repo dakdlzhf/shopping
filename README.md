@@ -119,7 +119,7 @@
 
 * <span style="color: #2D3748; background-color:#fff5b1;"> 자신의 글은 `수정` 과 `삭제` 를 할수있지만 **다른회원** 댓글은 수정 하거나 삭제 할수 없게 제한합니다.</span>
 
-​	![image-20220622182014941](../../AppData/Roaming/Typora/typora-user-images/image-20220622182014941.png)
+​	![image-20220622182014941](https://user-images.githubusercontent.com/80139780/175012919-9d7f34ad-0cae-44dd-bc72-9a461eab0fc0.png)
 
 
 
