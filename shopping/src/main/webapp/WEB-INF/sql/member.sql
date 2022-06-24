@@ -13,9 +13,7 @@ CREATE TABLE IF NOT EXISTS `webtest`.`member` (
   `mdate` DATE NOT NULL,
   `fname` VARCHAR(50) NOT NULL DEFAULT 'member.jpg',
   `grade` VARCHAR(1) NOT NULL DEFAULT 'H',
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
-ENGINE = InnoDB;
+  PRIMARY KEY (`id`));
 
 use webtest;
 
