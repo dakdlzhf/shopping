@@ -49,10 +49,8 @@ public class ContentsController {
     // (MySQL) DB에서 가져올 순번-----------------
     int sno = (nPage - 1) * recordPerPage;
     int eno = recordPerPage;
-
-    model.addAttribute("nowPage", nowPage);
-    model.addAttribute("col", col);
-    model.addAttribute("word", word);
+    int nowPage2 = nowPage;
+    model.addAttribute("nowPage", nowPage2);
     model.addAttribute("sno", sno);
     model.addAttribute("eno", eno);
     model.addAttribute("nPage", nPage);

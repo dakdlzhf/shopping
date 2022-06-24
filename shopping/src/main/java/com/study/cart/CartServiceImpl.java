@@ -25,9 +25,8 @@ public class CartServiceImpl implements CartService {
   }
 
   @Override
-  public int delete(int contentsno) {
-    // TODO Auto-generated method stub
-    return mapper.delete(contentsno);
+  public void delete(int cartno) {
+    mapper.delete(cartno);
   }
 
   @Override

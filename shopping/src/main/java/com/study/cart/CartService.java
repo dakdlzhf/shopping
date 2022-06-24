@@ -10,7 +10,7 @@ public interface CartService {
 
   int update(CartDTO cartDTO);
 
-  int delete(int contentsno);
+  void delete(int cartno);
 
   int total(int contentsno);
 }

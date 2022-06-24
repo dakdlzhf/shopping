@@ -11,112 +11,138 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 
 <script type="text/javascript">
-	function cart(){
-		if('${sessionScope.id}'==''){
-			alert("먼저 로그인부터 해라");
-			location.href="/member/login";
-			return;
-		}else{
-			cartFetch()
-			.then(result=>{
-				if(result == 1){
-					alert("장바구니에 상품이 추가 되었습니다.");
-				}
-			});
-		}
-		//카트테이블에 등록하고 등록되었다고 alert 창으로 메시지를 보여줘야한다 (비동기처리)
-	}
+	
 	function order(){
 		if('${sessionScope.id}'==''){
 			alert("로그인해라");
 			location.href="/member/login";
 			return;
-		}
-		//주문서 작성으로 이동해서 주문생성 한다.(비동기처리)
+		} 
+		let count = document.getElementById('qty').value;//$('#qty').val()
+		  let select = document.querySelector('.form-select');
+		  let i = select.selectedIndex;
+		  
+		  if(i==0 && !select.disabled){//사이즈를 선택하지 않거나 disabled가 아닌경우
+			  alert('사이즈를 선택하세요');
+		  	  select.focus();
+		  	  return ;
+		  }else if(select.disabled){
+			  select[i].value = 0; //비활성화된경우 사이즈값 0으로
+		  }
+		  let url = "/order/create/cart/${dto.contentsno}/"+count+"/"+select[i].value
+		  location.href= url;
+		
 	}
+	function cart(){
+		  if('${sessionScope.id}' == ''){
+			  alert('먼저 로그인을 하세요');
+			  location.href='/member/login';
+			  return ;
+		  }
+		  
+		  //카트테이블에 등록하고 등록확인 창 보여주기 (비동기)
+		  let count = document.getElementById('qty').value;//$('#qty').val()
+		  let select = document.querySelector('.form-select');
+		  let i = select.selectedIndex;
+		  
+		  if(i==0 && !select.disabled){//사이즈를 선택하지 않거나 disabled가 아닌경우
+			  alert('사이즈를 선택하세요');
+		  	  select.focus();
+		  	  return ;
+		  }else if(select.disabled){
+			  select[i].value = 0; //비활성화된경우 사이즈값 0으로
+		  }
+		  
+		  let param = {
+				  contentsno : '${dto.contentsno}',
+				  count : count,
+				  size : select[i].value
+		  }
+		  
+		  addCart(param)
+		  .then(result => alert(result))
+		  .catch(console.log);
+		  
+	  }	 
 </script>
 </head>
 <body>
 
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-3">
+			<div class="col-sm-4">
 				<h4>
 					<img src="/svg/box2-heart.svg"> 상품 정보
 				</h4>
 				<img class="img-rounded" src="/contents/storage/${dto.filename}"
-					style="width: 250px">
-				<div class="caption">
-					<p>상품명 : ${dto.pname}</p>
-					<p>상품설명 : ${dto.detail }</p>
-				</div>
+					style="width: 280px">
+
 			</div>
-			<div class="col-sm-6">
+			<div class="col-sm-8">
 				<h4>
 					<img src="/svg/rulers.svg"> 사이즈 및 수량
 				</h4>
 				<ul class="list-group">
-					<c:choose>
-						<c:when test="${dto.cateno ==1 }">
-
-							<li class="list-group-item">사이즈 : <select
-								class="form-select" id="select-size"
-								aria-label="Default select example">
+					<li class="list-group-item">상품명 : ${dto.pname }
+					<li class="list-group-item">사이즈 : <c:choose>
+							<c:when test="${dto.cateno==1}">
+								<select class="form-select" aria-label="Default select example">
 									<option selected>사이즈 선택</option>
 									<option value="L">L</option>
 									<option value="M">M</option>
 									<option value="S">S</option>
-							</select>
-						</c:when>
-						<c:when test="${dto.cateno ==2  }">
-							<li class="list-group-item">사이즈 : <select
-								class="form-select" aria-label="Default select example"
-								disabled="disabled">
+								</select>
+							</c:when>
+							<c:when test="${dto.cateno==2}">
+								<select class="form-select" aria-label="Default select example"
+									disabled="disabled">
 									<option selected>사이즈 선택</option>
-							</select>
-						</c:when>
-						<c:when test="${dto.cateno ==3  }">
-							<li class="list-group-item">사이즈 : <select
-								class="form-select" aria-label="Default select example">
+								</select>
+							</c:when>
+							<c:when test="${dto.cateno==3}">
+								<select class="form-select" aria-label="Default select example">
 									<option selected>사이즈 선택</option>
 									<option value="220">220</option>
 									<option value="230">230</option>
 									<option value="240">240</option>
 									<option value="250">250</option>
 									<option value="260">260</option>
-							</select>
-						</c:when>
-					</c:choose>
+								</select>
+							</c:when>
+						</c:choose>
 					<li class="list-group-item">가격 : ${dto.price }
 					<li class="list-group-item">재고 : ${dto.stock }
 					<li class="list-group-item">수량 : <input type="number"
-						name="quantity" min=0 max=20 value="1" id="input-quantity">
+						name="quantity" min=0 max=20 value="1" id="qty">
+					<li class="list-group-item">설명 : ${dto.detail }
 					<li class="list-group-item"><a href="javascript:cart()"> <img
-							class='btn' src="${request.ContextPath }/svg/cart4.svg" />
+							class='btn' src="/svg/cart4.svg" />
+							<!--  주문서 로이동 -->
 					</a> <a href="javascript:order()"> <img class='btn'
-							src="${request.ContextPath }/svg/bag-heart-fill.svg" />
-					</a> <a href="javascript:history.back()"> <img class='btn'
-							src="${request.ContextPath }/svg/arrow-return-left.svg" /></a>
+							src="/svg/bag-heart-fill.svg" />
+					</a> <a href="javascript:history.back()"><img class='btn'
+							src="/svg/arrow-return-left.svg" /></a>
 				</ul>
 			</div>
 		</div>
+		<br>
 		<div class='row'>
+
 			<div class="col-lg-12">
+
 				<!-- panel start-->
 				<div class="panel panel-default">
 
 					<div class="panel-heading">
-						<i class="fa fa-comments fa-fw"></i> 댓글
+						<i class="fa fa-comments fa-fw"></i> Review
 						<button id='addReplyBtn' class='btn btn-primary btn-xs pull-right'>New
-							Reply</button>
-						<!-- 리뷰 등록코드 id = addReplyBtn  -->
+							Review</button>
 					</div>
 
 
 					<div class="panel-body">
 
 						<ul class="chat list-group">
-							<!--  .chat 에 댓글list 반목문으로 태그만들어서삽입 되는곳 -->
 							<li class="left clearfix" data-rno="12">
 								<div>
 									<div class="header">
@@ -129,7 +155,6 @@
 							</li>
 						</ul>
 						<!-- ul end  -->
-
 					</div>
 
 					<div class="panel-footer"></div>
@@ -140,10 +165,7 @@
 			<!--  col-lg-12 end -->
 		</div>
 		<!-- row end -->
-
 	</div>
-	<!-- 컨테이너 박스 end -->
-
 
 	<!-- Modal -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
@@ -173,8 +195,6 @@
 		<!-- /.modal-dialog -->
 	</div>
 	<!-- /.modal -->
-
-
 	<!-- 페이지 로딩시 댓글 목록 처리-->
 	<!-- jstl는 internal javascript에서 사용가능 -->
 	<script>
@@ -187,26 +207,6 @@
 	 let colx = "${col}";
  	 let wordx = "${word}";
  	 let sessionId = '${sessionScope.id}';
- 	 
- 	 <!-- cart 에보낼 데이터-->
- 	 let filename = '${dto.filename}';
- 	 let price = '${dto.price}';
- 	 let stock = '${dto.stock}';
- 	 let size;
- 	 let quantity;
- 	 let productName = '${dto.pname}';
- 	 let productDescription = '${dto.detail}';
- 	 let selectChoice = document.getElementById('select-size');
- 	 let quantityChoice = document.getElementById('input-quantity');
- 	 if(selectChoice != " "){
-	 $('#select-size').on("change",function(){
-		 size = selectChoice.value;
-	 });
- 	 }
- 	 $('#input-quantity').on('change',function(){
- 		quantity= quantityChoice.value;
- 	 })
- 	 <!-- /cart 에보낼 데이터 end -->
  	</script>
 
 
@@ -215,6 +215,7 @@
 	<script src="${pageContext.request.contextPath}/js/consumer.js"></script>
 
 	<script src="${pageContext.request.contextPath}/js/cart.js"></script>
+
 
 	</div>
 

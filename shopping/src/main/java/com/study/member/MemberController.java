@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
@@ -25,17 +27,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.study.contents.ReplyController;
 import com.study.contents.ReplyDTO;
 import com.study.contents.ReplyService;
 import com.study.utility.Utility;
 
 @Controller // IOC ?
 public class MemberController {
+  private static final Logger log = LoggerFactory.getLogger(ReplyController.class);// () 안에 컨트롤러 이름 클래스명과 동일하게 쓰시오~~
 
   @Autowired
   @Qualifier("com.study.member.MemberServiceImpl")
   private MemberService service;
-  
+
   @Autowired
   @Qualifier("com.study.contents.ReplyServiceImpl")
   private ReplyService replyService;
@@ -55,7 +59,7 @@ public class MemberController {
 
   @PostMapping("/member/fileImageSet")
   public String fileImageSet(MultipartFile fnameMF, String id) {
-    
+
     String upDir = UploadMem.getUploadDir();
     MemberDTO dto = service.read(id);
     String oldfile = dto.getFname();// dto 기존 파일이름
@@ -91,6 +95,19 @@ public class MemberController {
     return "/member/pwFind";
   }
 
+  @GetMapping("/member/read")
+  public String mypage(String id, Model model) {
+    
+    
+    
+    MemberDTO dto = service.read(id);
+    log.info("dto"+dto);
+    
+    model.addAttribute("dto", dto);
+
+    return "/member/read";
+  }
+
   @GetMapping("/member/mypage")
   public String mypage(HttpSession session, Model model) {
     String id = (String) session.getAttribute("id");
@@ -106,31 +123,28 @@ public class MemberController {
       return "/member/mypage";
     }
   }
-  
+
   @PostMapping("/sessionCheck")
   @ResponseBody
   public boolean sessionCheck(@RequestBody ReplyDTO vo) {
-    //String id = (String) session.getAttribute("id");
+    // String id = (String) session.getAttribute("id");
     String id = vo.getId();
 
-      MemberDTO dto = service.mypage(id); //로그인중인 유저의 아이디로 member 조회 하여 dto 를받고 dto 에서 id 가동일한지보려고.
-      ReplyDTO rdto = replyService.read(vo.getRnum()); //해당 댓글 번호 (rnum)을 통해 해당 rnum 에해당하는 정보를 에서 id 를 뽑기위해 
-      String userId = rdto.getId();
-      boolean result ;
-      System.out.println(userId);
-      System.out.println(rdto.getId());
-      // 현재로그인 유저와 댓글남긴 유저의 id 가 동일하다면
-      if(id.equals(userId)) {
-        result =true;
-      }else {
-        result =false;
-      }
-      System.out.println(result);
-      return  result; //boolean 으로 comsumer.js 로 비동기응답
+    MemberDTO dto = service.mypage(id); // 로그인중인 유저의 아이디로 member 조회 하여 dto 를받고 dto 에서 id 가동일한지보려고.
+    ReplyDTO rdto = replyService.read(vo.getRnum()); // 해당 댓글 번호 (rnum)을 통해 해당 rnum 에해당하는 정보를 에서 id 를 뽑기위해
+    String userId = rdto.getId();
+    boolean result;
+    System.out.println(userId);
+    System.out.println(rdto.getId());
+    // 현재로그인 유저와 댓글남긴 유저의 id 가 동일하다면
+    if (id.equals(userId)) {
+      result = true;
+    } else {
+      result = false;
     }
-  
-  
-  
+    System.out.println(result);
+    return result; // boolean 으로 comsumer.js 로 비동기응답
+  }
 
   @RequestMapping("/admin/member/list")
   public String list(HttpServletRequest request) {
@@ -251,7 +265,7 @@ public class MemberController {
       session.setAttribute("id", map.get("id"));
       session.setAttribute("grade", gmap.get("grade"));
       session.setAttribute("mname", gmap.get("mname"));
-      
+
       // Cookie 저장,id저장 여부 및 id
       Cookie cookie = null;
       String c_id = request.getParameter("c_id");
@@ -273,8 +287,8 @@ public class MemberController {
         response.addCookie(cookie);
 
       }
-      System.out.println("현재로그인된 회원 sessionID : "+session.getAttribute("id"));
-      
+      System.out.println("현재로그인된 회원 sessionID : " + session.getAttribute("id"));
+
     } // ifcnt>0 end
 
     if (cnt > 0) {

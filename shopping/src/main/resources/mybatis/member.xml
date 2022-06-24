@@ -29,6 +29,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="pname" column="pname" />
 		<result property="contentsno" column="contentsno" />
 	</resultMap>
+	
 	<select id="mypage" parameterType="String"
 		resultMap="memberOrder">
 		select m.id, m.mname, m.fname, m.zipcode, m.address1, m.address2,
