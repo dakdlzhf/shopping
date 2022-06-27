@@ -181,9 +181,9 @@
 
 ## Contributor
 
-- KBW :https://github.com/dakdlzhf/shopping
-- LHS  : [@gmail.com](mailto:@gmail.com)
-- LCW : [@naver.com](mailto:@naver.com)
-- KNH : [@gmail.com](mailto:@gmail.com)
-- WHK : [@naver.com](mailto:@naver.com)
-- LDB : [@naver.com](mailto:@naver.com)
+- KBW : https://github.com/dakdlzhf/shopping
+- LHS : https://github.com/gkrtjs406/semiproject_shopping
+- LCW : https://github.com/twobluerain/semiproject
+- KNH : https://github.com/evelynKr/shopping-website
+- WHK : https://github.com/WooHkeu/shopping
+- LDB : https://github.com/olabeann/ShoppingMall
